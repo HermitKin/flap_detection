@@ -1,0 +1,69 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local dependencies and generated build products
+node_modules/
+build/
+dist/
+*.obj
+*.lib
+*.exp
+*.dll
+*.so
+
+# Upstream Ultralytics auxiliary material not needed by this project
+object detection/docs/
+object detection/examples/
+object detection/docker/
+object detection/images/
+object detection/tests/
+object detection/mkdocs.yml
+
+# Datasets, annotations, archives, model weights and experiment outputs
+derived/
+datasets/
+**/datasets/
+**/runs/
+**/outputs/
+batch_results/
+level_results/
+flap_strip_rectification_results/
+pose_detection_results*/
+single_image_level_results/
+single_results/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+*.zip
+*.7z
+*.rar
+**/evaluation/results/
+**/evaluation/ground_truth*.csv
+
+# Private/internal notes and migration helpers
+_migration_tools/
+document/
+1.md
+2.md
+命令行.md
+*每周工作回顾*.md
+
+# Office temporary files
+~$*

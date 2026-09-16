@@ -1,0 +1,32 @@
+name: yolo11
+channels:
+  - defaults
+dependencies:
+  - python=3.10.20
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu116
+      - torch==1.13.1+cu116
+      - torchvision==0.14.1+cu116
+      - numpy==1.26.4
+      - opencv-python==4.10.0.84
+      - Pillow==10.4.0
+      - PyYAML
+      - scipy
+      - matplotlib
+      - pandas
+      - seaborn
+      - tqdm
+      - psutil
+      - py-cpuinfo
+      - ultralytics-thop
+      - dill
+      - prettytable
+      - beautifulsoup4
+      - pycocotools
+      - tidecv
+      - timm
+      - grad-cam
+      - einops
+      - efficientnet-pytorch
+      - PyWavelets
