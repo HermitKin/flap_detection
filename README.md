@@ -10,6 +10,7 @@
 ![Vision](https://img.shields.io/badge/Vision-YOLO%20%2B%20OpenCV-00A67E)
 ![Desktop](https://img.shields.io/badge/Desktop-Tkinter-5266EB)
 ![Public demo](https://img.shields.io/badge/Demo-No%20weights%20required-27AE60)
+[![Public demo checks](https://github.com/HermitKin/flap_detection/actions/workflows/public-demo.yml/badge.svg)](https://github.com/HermitKin/flap_detection/actions/workflows/public-demo.yml)
 
 [快速体验](#快速体验) · [界面展示](#界面展示) · [完整操作](docs/USAGE.md) · [算法解析](docs/ALGORITHM.md)
 
