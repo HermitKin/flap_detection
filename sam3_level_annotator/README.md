@@ -6,16 +6,16 @@
 
 ## 1. 环境安装
 
-无需创建 `sam3` Conda 环境。当前 `base` 环境已有 CPU 版 PyTorch 和 Ultralytics，只需确认依赖：
+建议使用独立环境，按需要安装 CPU 或 GPU 版 PyTorch，然后安装标注工具依赖：
 
 ```powershell
-pip install -r "X:\Work\project_flapsdetection\sam3_level_annotator\requirements.txt"
+python -m pip install -r sam3_level_annotator/requirements.txt
 ```
 
-本机已经有一份可用的 `sam2_t.pt`：
+请自行准备兼容的 `sam2_t.pt` 权重，例如保存在：
 
 ```text
-X:\归档工作\北京华翔天宇\project_missile_launcher_truck\sam2_t.pt
+models/sam2_t.pt
 ```
 
 ## 2. 启动
@@ -23,11 +23,11 @@ X:\归档工作\北京华翔天宇\project_missile_launcher_truck\sam2_t.pt
 ### 推荐：矩形提示 + 即时保存
 
 ```powershell
-cd "X:\Work\project_flapsdetection"
+cd flap_detection
 python -m sam3_level_annotator.interactive_level_gauge_annotator `
   --images "D:\data\level_gauge\images" `
   --labels "D:\data\level_gauge\labels" `
-  --model "X:\归档工作\北京华翔天宇\project_missile_launcher_truck\sam2_t.pt" `
+  --model ".\models\sam2_t.pt" `
   --device cpu `
   --imgsz 640
 ```
@@ -48,7 +48,7 @@ python -m sam3_level_annotator.interactive_level_gauge_annotator `
 .\sam3_level_annotator\run_interactive.ps1 `
   --images "D:\data\level_gauge\images" `
   --labels "D:\data\level_gauge\labels" `
-  --model "X:\归档工作\北京华翔天宇\project_missile_launcher_truck\sam2_t.pt"
+  --model ".\models\sam2_t.pt"
 ```
 
 CPU 速度不够时可将 `--imgsz 640` 改为 `--imgsz 512`，代价是轮廓精度略有下降。

@@ -3,7 +3,7 @@
 运行：
 
 ```powershell
-D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/evaluation/evaluate_pipeline.py
+python level_gauge_showcase/evaluation/evaluate_pipeline.py
 ```
 
 脚本读取展示程序已经保存的三类 JSON：

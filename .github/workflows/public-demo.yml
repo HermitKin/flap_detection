@@ -1,0 +1,38 @@
+name: Public demo checks
+
+on:
+  push:
+    paths:
+      - 'level_gauge_showcase/**'
+      - 'tests/**'
+      - 'tools/*showcase*'
+      - 'requirements-demo.txt'
+      - 'README.md'
+      - 'docs/**'
+      - '.github/workflows/public-demo.yml'
+  pull_request:
+    paths:
+      - 'level_gauge_showcase/**'
+      - 'tests/**'
+      - 'tools/*showcase*'
+      - 'requirements-demo.txt'
+      - 'README.md'
+      - 'docs/**'
+      - '.github/workflows/public-demo.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-demo.txt
+      - run: python -m pip install -r requirements-demo.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/check_showcase.py

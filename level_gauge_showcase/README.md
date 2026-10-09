@@ -1,5 +1,9 @@
 # 磁翻板液位计完整流程展示
 
+项目完整展示与安装路线见 [项目首页](../README.md)，按钮操作见 [使用指南](../docs/USAGE.md)，原理见 [算法解析](../docs/ALGORITHM.md)。
+
+无需模型权重即可体验公开合成案例：`python level_gauge_showcase/app.py --demo`（从仓库根目录运行）。框和四角来自已知几何，透视校正与读数调用本项目实际代码。轻量依赖为根目录 `requirements-demo.txt`。
+
 本目录是一份独立展示程序，包含目标检测、关键点检测和 ReadROI 读数三个页面。旧版核心代码保存在 `legacy/`，展示程序通过 `services.py` 复用关键点数据格式和液位计算逻辑。目标检测和关键点检测在隔离的 Python 子进程中运行，主界面进程只负责显示、OpenCV 图像处理和读数，从而避免 Windows 下 PyTorch 与 OpenCV 的 OpenMP 运行库冲突。
 
 ## 启动
@@ -7,7 +11,7 @@
 在 PowerShell 或 CMD 中运行：
 
 ```powershell
-D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/app.py
+python level_gauge_showcase/app.py
 ```
 
 依赖：`ultralytics`、`opencv-python`、`numpy`、`Pillow`。模型首次调用时会有短暂加载时间。
@@ -15,7 +19,7 @@ D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/app.p
 如当前 Python 环境尚未安装依赖，可执行：
 
 ```powershell
-D:/Anaconda/python.exe -m pip install -r X:/Work/project_flapsdetection/level_gauge_showcase/requirements.txt
+python -m pip install -r level_gauge_showcase/requirements.txt
 ```
 
 ## 三个页面
@@ -68,13 +72,13 @@ outputs/
 不带参数运行时会弹出图片选择框，并在命令行询问量程：
 
 ```powershell
-D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/legacy_candidate_reader.py
+python level_gauge_showcase/legacy_candidate_reader.py
 ```
 
 也可以全部通过命令行传入：
 
 ```powershell
-D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/legacy_candidate_reader.py "ROI图片路径" --scale-min 0 --scale-max 100 --output-dir "输出目录"
+python level_gauge_showcase/legacy_candidate_reader.py "ROI图片路径" --scale-min 0 --scale-max 100 --output-dir "输出目录"
 ```
 
 输入应为第一页/第二页得到的液位计 ROI，或已经透视校正的 ROI，而不是包含大范围背景的场景原图。脚本保存 `detection_result.png`、仅含有色示数段的 `colour_interval.png` 和 `reading.json`。

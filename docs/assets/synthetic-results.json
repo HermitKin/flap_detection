@@ -1,0 +1,46 @@
+{
+  "provenance": "synthetic geometry; no YOLO inference; not a real-world benchmark",
+  "scale_range": [
+    0,
+    100
+  ],
+  "cases": [
+    {
+      "colour": "red",
+      "expected": 35.0,
+      "computed": 34.944,
+      "absolute_error": 0.056
+    },
+    {
+      "colour": "red",
+      "expected": 62.0,
+      "computed": 62.082,
+      "absolute_error": 0.082
+    },
+    {
+      "colour": "red",
+      "expected": 78.0,
+      "computed": 78.067,
+      "absolute_error": 0.067
+    },
+    {
+      "colour": "blue",
+      "expected": 35.0,
+      "computed": 34.944,
+      "absolute_error": 0.056
+    },
+    {
+      "colour": "blue",
+      "expected": 62.0,
+      "computed": 61.896,
+      "absolute_error": 0.104
+    },
+    {
+      "colour": "blue",
+      "expected": 78.0,
+      "computed": 78.067,
+      "absolute_error": 0.067
+    }
+  ],
+  "mean_absolute_error": 0.072
+}

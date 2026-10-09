@@ -857,6 +857,7 @@ class LevelGaugeShowcaseApp(tk.Tk):
         ).pack(side="right")
 
         notebook = ttk.Notebook(self)
+        self.notebook = notebook
         notebook.pack(fill="both", expand=True, padx=10, pady=(4, 10))
         self.object_tab = DetectionTab(notebook, self, mode="object")
         self.pose_tab = DetectionTab(notebook, self, mode="pose")
@@ -867,7 +868,16 @@ class LevelGaugeShowcaseApp(tk.Tk):
 
 
 def main() -> None:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="磁翻板液位计检测与读数展示")
+    parser.add_argument("--demo", action="store_true", help="加载无权重的合成几何演示")
+    args = parser.parse_args()
     app = LevelGaugeShowcaseApp()
+    if args.demo:
+        from public_demo import populate_demo
+
+        populate_demo(app)
     app.mainloop()
 
 

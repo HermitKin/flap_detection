@@ -114,6 +114,7 @@ def draw_pose_results(image: np.ndarray, detections: list[dict]) -> np.ndarray:
     font_scale = 0.45 if narrow else 0.55
     thickness = 1 if narrow else 2
     for detection in detections:
+        known_geometry = detection.get("provenance") == "known_synthetic_geometry"
         box = detection.get("box_xyxy", detection.get("box"))
         if box is not None:
             x1, y1, x2, y2 = np.round(np.asarray(box)).astype(int)
@@ -121,6 +122,8 @@ def draw_pose_results(image: np.ndarray, detections: list[dict]) -> np.ndarray:
             if not narrow:
                 confidence = float(detection.get("box_confidence", 0.0))
                 label = f"{detection.get('class_name', 'flap')} {confidence:.3f}"
+                if known_geometry:
+                    label = "known geometry"
                 origin = clamp_text_origin(
                     annotated, label, x1, y1 - 6, font_scale, thickness
                 )
@@ -149,7 +152,7 @@ def draw_pose_results(image: np.ndarray, detections: list[dict]) -> np.ndarray:
                 KEYPOINT_NAMES_4[point_index]
                 if len(points) == 4 else f"K{point_index}"
             )
-            point_label = point_name if narrow else f"{point_name} {point_confidence:.3f}"
+            point_label = point_name if narrow or known_geometry else f"{point_name} {point_confidence:.3f}"
             preferred_y = centre[1] + 18 if point_index < 2 else centre[1] - 8
             origin = clamp_text_origin(
                 annotated, point_label, centre[0] + 5, preferred_y,

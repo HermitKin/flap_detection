@@ -64,6 +64,11 @@ document/
 2.md
 命令行.md
 *每周工作回顾*.md
+handover_package/
+项目交接总说明.md
+
+# Local demonstration artifacts; reviewed publishing assets live in docs/assets.
+.demo-work/
 
 # Office temporary files
 ~$*

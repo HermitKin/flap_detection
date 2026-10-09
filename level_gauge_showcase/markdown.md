@@ -9,13 +9,13 @@
 程序目录：
 
 ```text
-X:\Work\project_flapsdetection\level_gauge_showcase
+flap_detection/level_gauge_showcase
 ```
 
 启动方式：
 
 ```powershell
-D:/Anaconda/python.exe X:/Work/project_flapsdetection/level_gauge_showcase/app.py
+python level_gauge_showcase/app.py
 ```
 
 ## 2. 当前完成内容
